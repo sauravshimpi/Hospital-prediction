@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock title %}
+{% block body %}
+{% if user.is_authenticated %}
+<main id="main">
+    <!-- ======= Pricing Section ======= -->
+    <section id="pricing" class="pricing mt-5" style="background-image: url('static/img/doctorrrr.jpg'); background-size: cover; background-position: center; height: 100vh;">
+      <div class="container" data-aos="fade-up">
+        <div class="row mt-5 justify-content-center">
+          <div class="col-lg-2 col-md-3">
+            <div class="box" data-aos="fade-up" data-aos-delay="100">
+              <h2>Symptoms Based Prediction</h2>
+              <hr>
+              <a href="non_mri" class="btn btn-outline-primary btn-lg" type="button">Fill Form</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+</main>
+{% endif %}
+{% endblock body %}

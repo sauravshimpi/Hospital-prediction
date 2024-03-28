@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock title %}
+{% block body %}
+{% if user.is_authenticated %}
+<main id="main">
+    <!-- ======= NON_MRI Section ======= -->
+    <section id="register" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Patient Details</h2>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-center">
+                    <div class="row justify-content-center m-auto">
+                        <div class="col-lg-4">
+                            <h3>Personal Information</h3>
+                            <hr>
+                            <div class="form-group mt-3">
+                                <label class="form-group">
+                                    <h5>Patient Name : {{patient_data.patient_first_name}} {{patient_data.patient_last_name}} </h5>
+                                </label>
+                                
+                            </div>
+                            <div class="form-group mt-3">
+                                <label class="form-group" >
+                                    <h5>Contact No : {{patient_data.patient_contact}}</h5>
+                                </label>
+                                
+                            </div>
+                            <div class="form-group mt-3">
+                                <label class="form-group" >
+                                    <h5>Age : {{patient_data.patient_age}}</h5>
+                                </label>
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <h3>Predictions</h3>
+                            <hr>
+                            <div class="form-group mt-3">
+                                <label class="form-group" >
+                                    {% if patient_data.prediction == "Normal CT Scan" or patient_data.prediction == "Normal X-ray" %}
+                                    <h5>Approximation of Disease : <span class="text-success">{{patient_data.prediction}}</span> </h5>
+                                    {% else %}
+                                    <h5>Approximation of Disease : <span class="text-danger">{{patient_data.prediction}}</span> </h5>
+                                    {% endif %}
+                                </label>
+                            </div>
+                            {% for doctor in doctor_data %}
+                                {% if patient_data.doctor == doctor.doctor_name %}
+                                <div class="form-group mt-3">
+                                    <label class="form-group">
+                                        <h5>You must take an Appointment of </h5> <br> 
+                                        <h5 style="color: darkblue;">{{patient_data.doctor}}</h5>
+                                        <p> <b> {{doctor.education}} </b><br>
+                                            <b>Consultant - {{doctor.consultant}} </b> <br>
+                                            {{doctor.hospital_name}}
+                                        </p>
+                                    </label>
+                                </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-3">
+                            <h3>Uploaded Image</h3>
+                            <hr>
+                            <img src="{{patient_data.uploaded_mri.url}}" alt="" height="250px">
+                        </div>
+
+                        <div class="text-center mt-3">
+                            <a class="btn btn-primary" type="button" href="dashboard">Go to Dashboard</a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section><!-- End Login Section -->
+</main>
+{% endif %}
+{% endblock body %}

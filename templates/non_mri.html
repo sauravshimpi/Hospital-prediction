@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock title %}
+{% block body %}
+{% if user.is_authenticated %}
+<main id="main">
+    <!-- ======= NON_MRI Section ======= -->
+    <section id="register" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Patient Details</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="row justify-content-center m-auto">
+                        <div class="row col-lg-10 justify-content-center m-auto">
+                            <h3>Personal Information</h3>
+                            <hr>
+                            <div class="col-lg-3">
+                                <div class="form-group mt-3">
+                                    <label class="form-group" for="{{form.first_name.id_for_lable}}">
+                                        <h5>Patient First Name <span style="color:red">*</span></h5>
+                                    </label>
+                                    {{form.first_name}}
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group mt-3">
+                                    <label class="form-group" for="{{form.last_name.id_for_lable}}">
+                                        <h5>Patient Last Name <span style="color:red">*</span></h5>
+                                    </label>
+                                    {{form.last_name}}
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group mt-3">
+                                    <label class="form-group" for="{{form.contact.id_for_lable}}">
+                                        <h5>Contact No <span style="color:red">*</span></h5>
+                                    </label>
+                                    {{form.contact}}
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group mt-3">
+                                    <label class="form-group" for="{{form.age.id_for_lable}}">
+                                        <h5>Age <span style="color:red">*</span></h5>
+                                    </label>
+                                    {{form.age}}
+                                </div>
+                            </div>
+                            <hr class="mt-3">
+                        </div>
+                        <div class="row col-lg-10 justify-content-center m-auto">
+                            <h3 class="text-center">Symptoms</h3>
+                            <hr>
+                            <div class="col-lg-5">
+                                <div class="form-group mt-3">
+                                    <label class="form-group" for="{{form.sym1.id_for_lable}}">
+                                        <h5>First Symptom<span class="text-danger"> *</span> </h5>
+                                    </label>
+                                    {{form.sym1}}
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label class="form-group" for="{{form.sym2.id_for_lable}}">
+                                        <h5>Second Symptom<span class="text-danger"> *</span> </h5>
+                                    </label>
+                                    {{form.sym2}}
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label class="form-group" for="{{form.sym3.id_for_lable}}">
+                                        <h5>Third Symptom<span class="text-danger"> *</span> </h5>
+                                    </label>
+                                    {{form.sym3}}
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label class="form-group" for="{{form.sym4.id_for_lable}}">
+                                        <h5>Fourth Symptom </h5>
+                                    </label>
+                                    {{form.sym4}}
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label class="form-group" for="{{form.sym5.id_for_lable}}">
+                                        <h5>Fifth Symptom </h5>
+                                    </label>
+                                    {{form.sym5}}
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="form-group mt-3">
+                                    <label class="form-group" for="{{form.sym6.id_for_lable}}">
+                                        <h5>Sixth Symptom </h5>
+                                    </label>
+                                    {{form.sym6}}
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label class="form-group" for="{{form.sym7.id_for_lable}}">
+                                        <h5>Seventh Symptom </h5>
+                                    </label>
+                                    {{form.sym7}}
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label class="form-group" for="{{form.sym8.id_for_lable}}">
+                                        <h5>Eighth Symptom </h5>
+                                    </label>
+                                    {{form.sym8}}
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label class="form-group" for="{{form.sym9.id_for_lable}}">
+                                        <h5>Ninth Symptom </h5>
+                                    </label>
+                                    {{form.sym9}}
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label class="form-group" for="{{form.sym10.id_for_lable}}">
+                                        <h5>Tenth Symptom </h5>
+                                    </label>
+                                    {{form.sym10}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-2">
+                            <button class="btn btn-primary mt-3 mx-3" type="submit">Submit</button>
+                            <a class="btn btn-dark mt-3" href="dashboard">Go to Dashboard</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section><!-- End Login Section -->
+</main>
+{% endif %}
+{% endblock body %}
